@@ -29,8 +29,7 @@ function NavBar() {
             onClick={() => {
               router.push("/");
             }}
-          >
-            YT<span className="text-red-500">Shorts</span>
+          >Stream<span className="text-red-500">Reels</span>
           </h1>
         </div>
         {/* Search Input Field */}
