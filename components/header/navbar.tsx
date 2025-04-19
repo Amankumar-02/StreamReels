@@ -13,11 +13,13 @@ import { Input } from "../ui/input";
 import { ModeToggle } from "../mode-toggle";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
-import { dark, shadesOfPurple } from "@clerk/themes";
+import { dark } from "@clerk/themes";
+// import { dark, shadesOfPurple } from "@clerk/themes";
 
 function NavBar() {
   const router = useRouter();
-  const { user, isSignedIn, isLoaded } = useUser();
+  const { user, isSignedIn } = useUser();
+  // const { user, isSignedIn, isLoaded } = useUser();
   const { resolvedTheme } = useTheme();
   return (
     <>

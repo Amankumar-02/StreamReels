@@ -2,7 +2,7 @@
 
 import { SignUp } from "@clerk/nextjs"
 import { useTheme } from "next-themes";
-import { dark, shadesOfPurple } from "@clerk/themes";
+import { dark } from "@clerk/themes";
 
 function SignUpRoute() {
   const { resolvedTheme } = useTheme(); // Get current theme (light/dark/system resolved)

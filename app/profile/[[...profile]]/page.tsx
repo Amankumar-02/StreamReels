@@ -2,7 +2,7 @@
 
 import { UserProfile } from "@clerk/nextjs";
 import { useTheme } from "next-themes";
-import { dark, shadesOfPurple } from "@clerk/themes";
+import { dark } from "@clerk/themes";
 
 function Profile() {
   const { resolvedTheme } = useTheme();

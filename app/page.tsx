@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useUser } from "@clerk/nextjs";
 
 export default function Home() {
-  const { user, isSignedIn, isLoaded } = useUser();
+  const { user, isSignedIn } = useUser();
   return (
     <>
     <Button className="mx-5">Hello World</Button>
