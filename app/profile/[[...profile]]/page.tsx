@@ -1,18 +1,12 @@
 "use client";
 
 import { UserProfile } from "@clerk/nextjs";
-import { useTheme } from "next-themes";
-import { dark } from "@clerk/themes";
+import ClerkTemplate from "@/components/clerkTemplate";
 
-function Profile() {
-  const { resolvedTheme } = useTheme();
+function ProfileRoute() {
   return (
-    <div className="container mx-auto flex items-center justify-center my-10">
-      <UserProfile
-        appearance={{ baseTheme: resolvedTheme === "dark" ? dark : undefined }}
-      />
-    </div>
+    <ClerkTemplate Component={UserProfile} />
   );
 }
 
-export default Profile;
+export default ProfileRoute;

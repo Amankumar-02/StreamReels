@@ -1,3 +1,5 @@
+// This file is part of the Next.js project.
+
 "use client"
 
 import { ThemeProvider as NextThemesProvider } from "next-themes"
