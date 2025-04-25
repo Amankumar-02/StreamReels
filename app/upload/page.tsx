@@ -18,7 +18,7 @@ import { Loader2 } from "lucide-react";
 // import { Form } from "@/components/ui/form";
 
 function UploadRoute() {
-  const [avatar, setAvatar] = useState<string>("/thumbnail.png");
+  // const [avatar, setAvatar] = useState<string>("/thumbnail.png");
   const { resolvedTheme } = useTheme();
   // const form = useForm<z.infer<typeof UploadReelSchema>>({
   //   defaultValues: {
@@ -51,7 +51,7 @@ function UploadRoute() {
           {/* Thumbnail */}
           <Avatar className="m-auto mb-8 h-25 w-25">
             <AvatarImage
-              src={avatar}
+              src="/thumbnail.png"
               className={
                 resolvedTheme === "dark"
                   ? "bg-gray-300 object-contain"
