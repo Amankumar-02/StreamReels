@@ -17,7 +17,8 @@ const urlEndpoint = process.env.NEXT_PUBLIC_IMAGEKITIO_URL_ENDPOINT;
 // Authenticator function required by ImageKit to securely upload files
 const authenticator = async () => {
   try {
-    const response = await fetch("http://localhost:3000/api/imagekit-auth",);
+    // const response = await fetch("http://localhost:3000/api/imagekit-auth");
+    const response = await fetch("https://streamreels.vercel.app/api/imagekit-auth");
 
     // Check for failed request
     if (!response.ok) {
