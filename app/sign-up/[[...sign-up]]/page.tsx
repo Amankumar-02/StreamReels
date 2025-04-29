@@ -1,12 +1,13 @@
-"use client";
+// "use client";
 
-import { SignUp } from "@clerk/nextjs"
-import ClerkTemplate from "@/components/clerkTemplate";
+// import { SignUp } from "@clerk/nextjs"
+// import ClerkTemplate from "@/components/clerkTemplate";
 
-function SignUpRoute() {
+function Page() {
   return (
-    <ClerkTemplate Component={SignUp} />
+    <h1>Sign-up</h1>
+    // <ClerkTemplate Component={SignUp} />
   )
 }
 
-export default SignUpRoute
+export default Page

@@ -17,7 +17,7 @@ const urlEndpoint = process.env.NEXT_PUBLIC_IMAGEKITIO_URL_ENDPOINT;
 // Authenticator function required by ImageKit to securely upload files
 const authenticator = async () => {
   try {
-    const response = await fetch("http://localhost:3000/api/auth");
+    const response = await fetch("http://localhost:3000/api/imagekit-auth",);
 
     // Check for failed request
     if (!response.ok) {
@@ -43,6 +43,10 @@ const authenticator = async () => {
 type UploadProps = {
     setReelUrl: (url: string) => void;
 };
+type UploadError = {
+  message: string;
+  [key: string]: unknown;
+};
 
 // Upload component responsible for rendering file upload UI
 export default function Upload({ setReelUrl }: UploadProps) {
@@ -50,7 +54,7 @@ export default function Upload({ setReelUrl }: UploadProps) {
   const [error, setError] = useState<string | null>(null);
 
   // Callback when upload fails
-  const onError = (err: any) => {
+  const onError = (err: UploadError) => {
     console.log("OnError", err);
     setError(err.message);
 
@@ -101,7 +105,7 @@ export default function Upload({ setReelUrl }: UploadProps) {
               }
               return true;
         }}
-        folder={"/blazeReels-media"}
+        folder={"/stream-reels"}
         onError={onError}
         onSuccess={onSuccess}
         onUploadProgress={onUploadProgress}

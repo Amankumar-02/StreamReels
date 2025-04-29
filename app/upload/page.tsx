@@ -1,15 +1,16 @@
 "use client";
 
-import React, { useActionState } from "react";
-import { useState } from "react";
-import { useTheme } from "next-themes";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import { uploadReelsAction } from "@/actions/upload-reel";
-import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import Upload from "@/components/upload";
 import { Loader2 } from "lucide-react";
+import React, { useActionState, useEffect, useState } from "react";
+// import { useTheme } from "next-themes";
+// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+
 // import { UploadReelSchema } from "@/schemas/uploadReelSchema";
 // import { FormInput } from "@/components/formInput";
 // import { useForm } from "react-hook-form";
@@ -17,9 +18,9 @@ import { Loader2 } from "lucide-react";
 // import { zodResolver } from "@hookform/resolvers/zod";
 // import { Form } from "@/components/ui/form";
 
-function UploadRoute() {
+function Page() {
   // const [avatar, setAvatar] = useState<string>("/thumbnail.png");
-  const { resolvedTheme } = useTheme();
+  // const { resolvedTheme } = useTheme();
   // const form = useForm<z.infer<typeof UploadReelSchema>>({
   //   defaultValues: {
   //     title: "",
@@ -38,18 +39,25 @@ function UploadRoute() {
   });
   const [reelUrl, setReelUrl] = useState<string>("");
   const handleSubmit = (formData: FormData) => {
+    console.log("before", formData)
     formData.append("reel", reelUrl);
+    console.log("after", formData)
     return action(formData);
   };
-  console.log(formState);
+  useEffect(() => {
+    if (formState.errors && Object.keys(formState.errors).length > 0) {
+      setReelUrl("");
+    }
+  }, [formState.errors]);
+  console.log("upload page", formState);
 
   return (
     <>
       <div className="lg:max-w-[80%] mx-auto p-6">
-        <h1 className="text-3xl text-center font-bold">Upload Reels</h1>
+        <h1 className="mb-6 text-3xl text-center font-bold">Upload Reels</h1>
         <div className="mt-4 border border-grey-300 rounded-lg p-4">
           {/* Thumbnail */}
-          <Avatar className="m-auto mb-8 h-25 w-25">
+          {/* <Avatar className="m-auto mb-8 h-25 w-25">
             <AvatarImage
               src="/thumbnail.png"
               className={
@@ -59,7 +67,7 @@ function UploadRoute() {
               }
             />
             <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
+          </Avatar> */}
           {/* Form */}
           <form action={handleSubmit}>
             {/* Title */}
@@ -93,7 +101,7 @@ function UploadRoute() {
               )}
             </div>
             {/* Hashtags */}
-            <div className="mb-4">
+            {/* <div className="mb-4">
               <Label>#HashTag</Label>
               <Input
                 type="text"
@@ -106,10 +114,10 @@ function UploadRoute() {
                   {formState.errors.hashtags}
                 </span>
               )}
-            </div>
+            </div> */}
             {/* UploadReel */}
             <div className="mb-4">
-              <Upload setReelUrl={setReelUrl} />
+              <Upload setReelUrl={setReelUrl}/>
               {formState.errors.reel && (
                 <span className="text-red-500 text-sm">
                   {formState.errors.reel}
@@ -123,7 +131,7 @@ function UploadRoute() {
               </div>
             )}
             {/* Submit Button */}
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full" disabled={!reelUrl || isPending}>
               {isPending ? <Loader2 className="animate-spin h-4 w-4" /> : "Upload"}
             </Button>
           </form>
@@ -133,4 +141,4 @@ function UploadRoute() {
   );
 }
 
-export default UploadRoute;
+export default Page;

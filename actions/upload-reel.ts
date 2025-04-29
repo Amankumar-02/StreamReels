@@ -4,24 +4,32 @@ import { prisma } from '@/lib/prisma'
 import { auth } from '@clerk/nextjs/server'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
-import { UploadReelSchema } from "@/schemas/uploadReelSchema";
+// import { UploadReelSchema } from "@/schemas/uploadReelSchema";
+import { z } from 'zod'
 
-type UploadReelState = {
+const uploadReelsSchema = z.object({
+    title: z.string().min(3, { message: "Title must be at least 3 characters." }),
+    description: z.string().min(5, { message: "Description must be at least 5 characters." }),
+    reel: z.string(),
+})
+
+type UploadReelsState = {
     errors: {
         title?: string[];
         description?: string[],
         reel?: string[],
-        hashtags?: string[],
+        // hashtags?: string[],
         formError?: string[],
     }
 }
 
-export const uploadReelsAction = async (prevState: UploadReelState, formData: FormData) : Promise<UploadReelState> => {
-    const result = UploadReelSchema.safeParse({
-        title: formData.get("title") as String,
-        description: formData.get("description") as String,
-        reel: formData.get("reel") as String,
-        hashtags: formData.get("hashtags") as String,
+export const uploadReelsAction = async (prevState: UploadReelsState, formData: FormData) : Promise<UploadReelsState> => {
+    // const result = UploadReelSchema.safeParse({
+    const result = uploadReelsSchema.safeParse({
+        title: formData.get("title") as string,
+        description: formData.get("description") as string,
+        reel: formData.get("reel") as string,
+        // hashtags: formData.get("hashtags") as string,
     });
     if (!result.success) {
         return { errors: result.error.flatten().fieldErrors };
@@ -38,7 +46,7 @@ export const uploadReelsAction = async (prevState: UploadReelState, formData: Fo
             }
         }
     }
-    // console.log("working...");
+    console.log("working...");
     
     const user = await prisma.user.findUnique({
         where: { clerkUserId: userId }
@@ -58,7 +66,7 @@ export const uploadReelsAction = async (prevState: UploadReelState, formData: Fo
                 title: result.data.title,
                 description: result.data.description,
                 reelUrl: result.data.reel,
-                hashtags: result.data.hashtags,
+                // hashtags: result.data.hashtags,
                 userId: user.id
             }
         })

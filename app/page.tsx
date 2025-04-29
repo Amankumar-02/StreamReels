@@ -1,4 +1,4 @@
-import ReelsCard from "@/components/reelsCard/reels-card";
+import ReelCard from "@/components/reels/reel-card";
 import { prisma } from "@/lib/prisma";
 import { currentUser } from "@clerk/nextjs/server";
 // import { Button } from "@/components/ui/button";
@@ -43,12 +43,13 @@ export default async function Home() {
 
   return (
     <>
-    <div className="overflow-y-scroll scrollbar-hidden scroll-smooth snap-y snap-mandatory" style={{height: "calc(100vh - 56px)"}}>
+    <div className="overflow-y-scroll scroll-smooth snap-y snap-mandatory" style={{height: "calc(100vh - 56px)"}}>
+    {/* <div className="overflow-y-scroll scrollbar-hidden scroll-smooth snap-y snap-mandatory" style={{height: "calc(100vh - 56px)"}}> */}
       {/* shorts container  */}
       <div className="flex flex-col items-center">
         {reels.map((reel) => (
           <div key={reel.id} className="snap-start flex justify-center items-center">
-            <ReelsCard reel={reel} />
+            <ReelCard reel={reel} />
           </div>
         ))}
       </div>

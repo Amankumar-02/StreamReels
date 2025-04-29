@@ -1,7 +1,8 @@
 "use client";
 
-// import type { Prisma } from "@prisma/client";
-import type { Prisma } from "@/lib/generated/prisma";
+import type { Prisma } from "@prisma/client";
+// import React from "react";
+// import type { Prisma } from "@/lib/generated/prisma";
 import React, { useRef, useEffect } from "react";
 import { Card, CardFooter } from "../ui/card";
 // import { ImageKitProvider, IKVideo } from "imagekitio-next";
@@ -23,8 +24,8 @@ type ReelCardProps = {
   }>;
 };
 
-const ReelsCard: React.FC<ReelCardProps> = ({ reel }) => {
-  // console.log(reel);
+const ReelCard: React.FC<ReelCardProps> = ({ reel }) => {
+  console.log(reel);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
@@ -42,11 +43,11 @@ const ReelsCard: React.FC<ReelCardProps> = ({ reel }) => {
       {/* <ImageKitProvider urlEndpoint={urlEndPoint}>
         <IKVideo
           path={reel.reelUrl.replace(urlEndPoint, "")}
-          transformation={[{ height: "640", width: "360", format: "mp4" }]}
+          // transformation={[{ height: "640", width: "360", format: "mp4" }]}
           controls
           autoPlay={false}
-          disablePictureInPicture
-          controlsList="nodownload nofullscreen noremoteplayback"
+          // disablePictureInPicture
+          // controlsList="nodownload nofullscreen noremoteplayback"
           className="absolute inset-0 w-full h-full object-cover"
         />
       </ImageKitProvider> */}
@@ -98,4 +99,4 @@ const ReelsCard: React.FC<ReelCardProps> = ({ reel }) => {
   );
 };
 
-export default ReelsCard;
+export default ReelCard;
