@@ -30,8 +30,21 @@ export default async function Home() {
     console.log("New user created");
   }
 
+  // const reels = await prisma.reels.findMany({
+  //   where: { userId: loggedInUser?.id },
+  //   include: {
+  //     user: {
+  //       select: {
+  //         name: true,
+  //         email: true,
+  //       },
+  //     },
+  //   },
+  //   orderBy:{
+  //     createdAt:'desc'
+  //   }
+  // });
   const reels = await prisma.reels.findMany({
-    where: { userId: loggedInUser?.id },
     include: {
       user: {
         select: {
@@ -44,6 +57,7 @@ export default async function Home() {
       createdAt:'desc'
     }
   });
+
 
   return (
     <>
