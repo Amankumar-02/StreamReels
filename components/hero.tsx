@@ -140,13 +140,13 @@ function Hero() {
         </h2>
 
         <Carousel opts={{ loop: true }}>
-          <CarouselContent>
+          <CarouselContent className="flex items-center">
             {testimonials.map((t, idx) => (
               <CarouselItem
                 key={idx}
-                className="md:basis-1/2 lg:basis-1/3 px-2"
+                className="basis-2/3 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 px-4"
               >
-                <div className="bg-background rounded-lg shadow-md p-6 h-full flex flex-col justify-between">
+                <div  className="bg-muted rounded-xl shadow-lg p-6 h-full flex flex-col items-center justify-center transition-transform hover:scale-[1.03] duration-200">
                   <div className="flex flex-col items-center mb-4">
                     <Avatar>
                       <AvatarImage src="https://github.com/shadcn.png" />
@@ -165,8 +165,8 @@ function Hero() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2" />
+          <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2" />
         </Carousel>
       </section>
       {/* faq */}
@@ -226,7 +226,7 @@ function Hero() {
         <h1 className="text-3xl md:text-4xl font-bold text-center text-primary mb-10">
         Frameworks, Services & Libraries We Use
         </h1>
-        <div className="relative">
+        {/* <div className="relative"> */}
           <Carousel opts={{ loop: true }}>
             <CarouselContent className="flex items-center">
               {partners.map((partner, index) => (
@@ -260,7 +260,7 @@ function Hero() {
             <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2" />
             <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2" />
           </Carousel>
-        </div>
+        {/* </div> */}
       </section>
     </>
   );

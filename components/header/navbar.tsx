@@ -39,7 +39,7 @@ function NavBar() {
         <div className="hidden sm:block lg:w-1/2">
           <Input type="text" placeholder="Search..." />
         </div>
-        <div className="sm:hidden border py-1 px-2 rounded-md">
+        <div className="hidden sm:hidden border py-1 px-2 rounded-md">
           <Search className="text-gray-500" />
           {/* <Input type="text" placeholder="Search..." /> */}
         </div>
