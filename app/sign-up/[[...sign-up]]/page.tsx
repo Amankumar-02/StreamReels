@@ -1,12 +1,12 @@
-// "use client";
+"use client";
 
-// import { SignUp } from "@clerk/nextjs"
-// import ClerkTemplate from "@/components/clerkTemplate";
+import { SignUp } from "@clerk/nextjs"
+import ClerkTemplate from "@/components/clerkTemplate";
 
 function Page() {
   return (
-    <h1>Sign-up</h1>
-    // <ClerkTemplate Component={SignUp} />
+    // <h1>Sign-up</h1>
+    <ClerkTemplate Component={SignUp} />
   )
 }
 

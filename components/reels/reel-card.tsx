@@ -57,7 +57,7 @@ const ReelCard: React.FC<ReelCardProps> = ({ reel }) => {
             ref={videoRef}
             src={reel.reelUrl}
             className="w-full h-full object-cover"
-            autoPlay
+            // autoPlay
             loop
             // muted
             playsInline
@@ -77,7 +77,7 @@ const ReelCard: React.FC<ReelCardProps> = ({ reel }) => {
           </div>
 
       {/* Channel Information  */}
-      <CardFooter className="absolute bottom-20 -left-2 text-white">
+      <CardFooter className="absolute bottom-20 left-0 text-white bg-[#00000085] py-2 w-full">
         <div>
           <div className="flex items-center space-x-2">
             <Avatar>
@@ -92,6 +92,9 @@ const ReelCard: React.FC<ReelCardProps> = ({ reel }) => {
 
           <div className="text-sm mt-2">
             <p>{reel.description}</p>
+          </div>
+          <div className="text-sm mt-2">
+            <p>{reel.hashtags}</p>
           </div>
         </div>
       </CardFooter>

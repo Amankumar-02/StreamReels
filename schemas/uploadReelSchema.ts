@@ -27,13 +27,13 @@ export const UploadReelSchema = z.object({
     .max(200, {
       message: "Description must not exceed 200 characters.",
     }),
-  reel: z
-      .string(),
   hashtags: z
     .string()
     // .regex(/^#[\w]+(?:\s*#[\w]+)*$/, "Enter valid hashtags starting with #")
     .refine((val) => val === "" || /^#[\w]+(?:\s*#[\w]+)*$/.test(val), 
     { message: "Enter valid hashtags starting with #", }),
+  reel: z
+      .string(),
     // .min(4, { message: "HashTag must be at least 3 characters.",}),
   //   thumbnail: z
   //     .string()

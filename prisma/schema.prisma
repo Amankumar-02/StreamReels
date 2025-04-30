@@ -30,7 +30,7 @@ model Reels {
   title String 
   description String
   reelUrl String // get from imageKitIo
-  // hashtags String?
+  hashtags String?
   userId String
   createdAt DateTime @default(now())
   updateAt DateTime @updatedAt

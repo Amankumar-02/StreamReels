@@ -1,28 +1,28 @@
-// "use client";
+"use client";
 
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Plus, Search } from "lucide-react";
 import { ModeToggle } from "../mode-toggle";
 import {
-  SignInButton,
-  SignUpButton,
+  // SignInButton,
+  // SignUpButton,
   SignedIn,
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
 import Link from "next/link";
-// import { useUser } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
 // import { useRouter } from "next/navigation";
-// import { useTheme } from "next-themes";
-// import { dark } from "@clerk/themes";
+import { useTheme } from "next-themes";
+import { dark } from "@clerk/themes";
 // import { dark, shadesOfPurple } from "@clerk/themes";
 
 function NavBar() {
   // const router = useRouter();
-  // const { user, isSignedIn } = useUser();
+  const { user, isSignedIn } = useUser();
   // const { user, isSignedIn, isLoaded } = useUser();
-  // const { resolvedTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
   return (
     <>
       <div className="flex items-center justify-between gap-2 h-14 px-4 lg:px-0">
@@ -52,9 +52,9 @@ function NavBar() {
           {/* Auth Management */}
           <header className="flex justify-end items-center p-2 lg:p-4 gap-2 lg:gap-4 h-16">
             <SignedOut>
-              <SignInButton><Button>Sign In</Button></SignInButton>
-              <SignUpButton><Button>Sign Up</Button></SignUpButton>
-              {/* <Link href="/sign-in">
+              {/* <SignInButton><Button>Sign In</Button></SignInButton> */}
+              {/* <SignUpButton><Button>Sign Up</Button></SignUpButton> */}
+              <Link href="/sign-in">
               <Button
                 className="cursor-pointer"
                 >
@@ -67,27 +67,27 @@ function NavBar() {
                 >
                 Sign Up
               </Button>
-              </Link> */}
+              </Link>
             </SignedOut>
             <SignedIn>
               {/* All media */}
               <Link href="/upload"> 
               <Button className="cursor-pointer" ><Plus /> Create</Button>
               </Link>
-              {/* <h2 className="hidden lg:block text-sm">
+              <h2 className="hidden lg:block text-sm">
                 {isSignedIn && (
                   <>
                     {`Welcome `}
                     <span className="font-semibold">{user.username}</span>
                   </>
                 )}
-              </h2> */}
+              </h2>
               <UserButton
-                // appearance={{
-                //   baseTheme: resolvedTheme === "dark" ? dark : undefined,
-                // }}
-                // userProfileMode="navigation" // Instead of modal
-                // userProfileUrl="/profile"
+                appearance={{
+                  baseTheme: resolvedTheme === "dark" ? dark : undefined,
+                }}
+                userProfileMode="navigation" // Instead of modal
+                userProfileUrl="/profile"
               />
             </SignedIn>
           </header>

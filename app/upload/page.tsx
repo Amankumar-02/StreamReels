@@ -7,8 +7,8 @@ import { Label } from "@/components/ui/label";
 import Upload from "@/components/upload";
 import { Loader2 } from "lucide-react";
 import React, { useActionState, useEffect, useState } from "react";
-// import { useTheme } from "next-themes";
-// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useTheme } from "next-themes";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 
 // import { UploadReelSchema } from "@/schemas/uploadReelSchema";
@@ -20,7 +20,7 @@ import React, { useActionState, useEffect, useState } from "react";
 
 function Page() {
   // const [avatar, setAvatar] = useState<string>("/thumbnail.png");
-  // const { resolvedTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
   // const form = useForm<z.infer<typeof UploadReelSchema>>({
   //   defaultValues: {
   //     title: "",
@@ -57,7 +57,7 @@ function Page() {
         <h1 className="mb-6 text-3xl text-center font-bold">Upload Reels</h1>
         <div className="mt-4 border border-grey-300 rounded-lg p-4">
           {/* Thumbnail */}
-          {/* <Avatar className="m-auto mb-8 h-25 w-25">
+          <Avatar className="m-auto mb-8 h-25 w-25">
             <AvatarImage
               src="/thumbnail.png"
               className={
@@ -67,7 +67,7 @@ function Page() {
               }
             />
             <AvatarFallback>CN</AvatarFallback>
-          </Avatar> */}
+          </Avatar>
           {/* Form */}
           <form action={handleSubmit}>
             {/* Title */}
@@ -101,7 +101,7 @@ function Page() {
               )}
             </div>
             {/* Hashtags */}
-            {/* <div className="mb-4">
+            <div className="mb-4">
               <Label>#HashTag</Label>
               <Input
                 type="text"
@@ -114,7 +114,7 @@ function Page() {
                   {formState.errors.hashtags}
                 </span>
               )}
-            </div> */}
+            </div>
             {/* UploadReel */}
             <div className="mb-4">
               <Upload setReelUrl={setReelUrl}/>
