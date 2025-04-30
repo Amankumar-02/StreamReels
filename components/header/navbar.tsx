@@ -28,14 +28,11 @@ function NavBar() {
       <div className="flex items-center justify-between gap-2 h-14 px-4 lg:px-0">
         <div>
           {/* Logo Text */}
-          <h1
-            className="font-bold text-xl cursor-pointer"
-            // onClick={() => {
-            //   router.push("/");
-            // }}
-          >
-            Stream<span className="text-red-500">Reels</span>
-          </h1>
+          <Link href="/">
+            <h1 className="font-bold text-xl md:text-3xl cursor-pointer" >
+              Stream<span className="text-red-500">Reels</span>
+            </h1>
+          </Link>
         </div>
 
         {/* Search Input Field */}

@@ -1,14 +1,18 @@
+import Hero from "@/components/hero";
 import ReelCard from "@/components/reels/reel-card";
 import { prisma } from "@/lib/prisma";
 import { currentUser } from "@clerk/nextjs/server";
-// import { Button } from "@/components/ui/button";
 
 export default async function Home() {
   const user = await currentUser();
   // console.log(user?.imageUrl, user?.hasImage, user?.lastSignInAt)
-  // console.log(user)
+
   if(!user){
-    return null;
+    return(
+      <>
+      <Hero/>
+      </>
+    );
   }
 
   const loggedInUser = await prisma.user.findUnique({
@@ -43,8 +47,8 @@ export default async function Home() {
 
   return (
     <>
-    <div className="overflow-y-scroll scroll-smooth snap-y snap-mandatory" style={{height: "calc(100vh - 56px)"}}>
-    {/* <div className="overflow-y-scroll scrollbar-hidden scroll-smooth snap-y snap-mandatory" style={{height: "calc(100vh - 56px)"}}> */}
+    {/* <div className="overflow-y-scroll scroll-smooth snap-y snap-mandatory" style={{height: "calc(100vh - 56px)"}}> */}
+    <div className="overflow-y-scroll scrollbar-hidden scroll-smooth snap-y snap-mandatory" style={{height: "calc(100vh - 56px)"}}>
       {/* shorts container  */}
       <div className="flex flex-col items-center">
         {reels.map((reel) => (

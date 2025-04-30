@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "@/components/header/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
+import Footer from "@/components/footer/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +41,7 @@ export default function RootLayout({
             <div className="container mx-auto">
               <NavBar />
               {children}
+              <Footer />
             </div>
           </ThemeProvider>
         </body>
