@@ -14,7 +14,7 @@ function ClerkTemplate({ Component }: { Component: React.ElementType }) {
   }, []);
 
   return (
-    <div className="container mx-auto flex items-center justify-center my-6">
+    <div className="container mx-auto flex items-center justify-center py-6" style={{ minHeight: "calc(100vh - 96px)" }}>
       {!isMounted || !resolvedTheme ? (
           <div className="h-[90vh] w-full max-w-md animate-pulse rounded-lg bg-muted" />
       ) : (

@@ -53,9 +53,9 @@ function Page() {
 
   return (
     <>
-      <div className="lg:max-w-[80%] mx-auto p-6">
+      <div className="lg:max-w-[80%] mx-auto py-6" style={{ minHeight: "calc(100vh - 96px)" }}>
         <h1 className="mb-6 text-3xl text-center font-bold">Upload Reels</h1>
-        <div className="mt-4 border border-grey-300 rounded-lg p-4">
+        <div className="border border-grey-300 rounded-lg p-4">
           {/* Thumbnail */}
           <Avatar className="m-auto mb-8 h-25 w-25">
             <AvatarImage

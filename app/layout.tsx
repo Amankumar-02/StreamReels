@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { MediaControlProvider } from "./context/mediaControlContext";
 import NavBar from "@/components/header/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
@@ -40,7 +41,7 @@ export default function RootLayout({
           >
             <div className="container mx-auto">
               <NavBar />
-              {children}
+              <MediaControlProvider>{children}</MediaControlProvider>
               <Footer />
             </div>
           </ThemeProvider>
