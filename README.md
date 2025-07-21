@@ -118,6 +118,26 @@ yarn install
 3. Environment Setup:
 Create a .env.local file in the root directory
 
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_public_key
+CLERK_SECRET_KEY=your_clerk_private_key
+
+# NeonDB Database Configuration
+DATABASE_URL="your_neondb_database_url"
+
+# define a custom sign-in/up page URL for your app, trigger when the user is not authenticated and navigate to protected pages
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+
+# after sign-in/up, redirect to the custom route
+NEXT_PUBLIC_CLERK_SIGN_IN_FORCE_REDIRECT_URL=/
+NEXT_PUBLIC_CLERK_SIGN_UP_FORCE_REDIRECT_URL=/
+NEXT_PUBLIC_CLERK_SIGN_OUT_FORCE_REDIRECT_URL=/
+
+# Cloudinary Configuration
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+
 4. Database Setup
 
 bash
