@@ -1,4 +1,4 @@
-# ⚡ StreamReels - Next-Gen Short Video Platform
+# ⚡ StreamReels - Next-Gen Reels Streaming Platform
 
 StreamReels is a cutting-edge reels streaming platform built with modern technologies, delivering a real-time content discovery and seamless user engagement.
 
