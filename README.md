@@ -1,10 +1,10 @@
 # ⚡ StreamReels - Next-Gen Short Video Platform
 
-StreamReels is a cutting-edge short video platform built with modern technologies, delivering a TikTok-like experience with real-time content discovery and seamless user engagement.
+StreamReels is a cutting-edge reels streaming platform built with modern technologies, delivering a real-time content discovery and seamless user engagement.
 
 ## 🌟 Project Overview
 
-StreamReels is a full-stack short video streaming platform designed to provide creators and viewers with an immersive content sharing experience. Engineered to serve 300+ daily active users, it focuses on real-time content discovery, interactive engagement, and optimal performance across all devices.
+StreamReels is a full-stack reels streaming platform designed to provide creators and viewers with an immersive content sharing experience. Engineered to serve 300+ daily active users, it focuses on real-time content discovery, interactive engagement, and optimal performance across all devices.
 
 ## 🚀 Live Demo & Repository
 
@@ -77,6 +77,12 @@ StreamReels is a full-stack short video streaming platform designed to provide c
 - **Clerk** - Complete authentication solution
 - **Cloudinary** - Cloud-based media management
 - **JWT** - Secure token management
+
+### 💬 Real-Time Messaging
+
+- Integrated Socket.io for instant messaging
+- Sub-100ms real-time chat latency
+- Live interaction between users and creators
 
 ### Deployment & DevOps
 
